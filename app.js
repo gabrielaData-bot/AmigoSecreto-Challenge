@@ -5,7 +5,7 @@ function agregarAmigo() {
   let inputAmigo = document.getElementById('amigo');
   let nombre = inputAmigo.value;
  //Verificar que el campo no este vacío.
-  if (nombre.trim === "") {
+  if (nombre === "") {
     alert("Por favor, ingresa un nombre válido.");
     return;
   }
@@ -43,7 +43,8 @@ function sortearAmigos(){
   let amigoSorteado=listaAmigos[indiceAleatorio];
 // Obtener el elemento donde se mostrara el resultado.
   let resultadoHTML= document.getElementById('resultado');
+
 // Mostrar el nombre del amigo sorteado en la página.
 // Uso innerHTML para poder poner un texto personalizado
-  resultadoHTML.innerHTML=`<p>El amigo sorteado es: <strong>$ {amigoSorteado}</strong></p>`;
+  resultadoHTML.innerHTML=(`<p>El amigo sorteado es: <strong>${amigoSorteado}</strong></p>`);
 }
