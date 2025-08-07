@@ -19,6 +19,11 @@ function agregarAmigo() {
   inputAmigo.value = "";
 }
 
+function mostrarLista(){
+  const ul=document.getElementById('listaAmigos');
+  return;
+}
+
 function sortearAmigos(){
   //Verificar si hay al menos un amigo para sortear.
   if(listaAmigos.length===0){
