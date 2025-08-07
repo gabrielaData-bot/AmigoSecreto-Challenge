@@ -1,72 +1,44 @@
+//Este array guardará los nombres de los amigos.
 let listaAmigos = [];
-
+// Esta función se encargara de agregar un amigo al array.
 function agregarAmigo() {
-  const input = document.getElementById("amigo");
-  const nombre = input.value.trim();
-
-  if (nombre === "") {
-    alert("Por favor, escribe un nombre válido.");
+  let inputAmigo = document.getElementById('amigo');
+  let nombre = inputAmigo.value;
+ //Verificar que el campo no este vacío.
+  if (nombre.trim === "") {
+    alert("Por favor, ingresa un nombre válido.");
     return;
   }
-
+  
   if (listaAmigos.includes(nombre)) {
     alert("Este nombre ya está en la lista.");
     return;
   }
 
   listaAmigos.push(nombre);
+  let listaHTML= document.getElementById('listaAmigos');
+  let nuevoAmigo= document.createElement('li');
+  nuevoAmigo.textContent=nombre;
   mostrarLista();
-  input.value = "";
+  console.log('lista actual de amigos:', listaAmigos);
+  //Limpiar el campo de texto para el próximo nombre.
+  inputAmigo.value = "";
 }
 
-function mostrarLista() {
-  const ul = document.getElementById("listaAmigos");
-  ul.innerHTML = "";
-
-  listaAmigos.forEach(amigo => {
-    const li = document.createElement("li");
-    li.textContent = amigo;
-    ul.appendChild(li);
-  });
-}
-
-function sortearEmparejamientos() {
-  if (listaAmigos.length < 2) {
-    alert("Debe haber al menos 2 amigos para realizar el sorteo.");
+function sortearAmigos(){
+  //Verificar si hay al menos un amigo para sortear.
+  if(listaAmigos.length===0){
+    alert('No hay amigos para sortear.');
     return;
   }
 
-  let copiaAmigos = [...listaAmigos];
-
-  // Desordenar la copia
-  copiaAmigos = copiaAmigos.sort(() => Math.random() - 0.5);
-
-  // Reintentar si alguien se empareja consigo mismo
-  let intentos = 0;
-    while (hayEmparejamientoInvalido(listaAmigos, copiaAmigos) && intentos < 10) {
-    copiaAmigos = copiaAmigos.sort(() => Math.random() - 0.5);
-    intentos++;
-  }
-
-  if (hayEmparejamientoInvalido(listaAmigos, copiaAmigos)) {
-    alert("No se pudo realizar el sorteo sin repeticiones. Intenta de nuevo.");
-    return;
-  }
-
-  // Mostrar resultado
-  let resultado = "<h3>Resultado del sorteo:</h3><ul>";
-  for (let i = 0; i < listaAmigos.length; i++) {
-    resultado += `<li>${listaAmigos[i]} → ${copiaAmigos[i]}</li>`;
-  }
-  resultado += "</ul>";
-
-  document.getElementById("resultado").innerHTML = resultado;
-}
-function hayEmparejamientoInvalido(original, mezclado) {
-  for (let i = 0; i < original.length; i++) {
-    if (original[i] === mezclado[i]) {
-      return true;
-    }
-  }
-  return false;
+//Generar un índice aleatorio
+  let indiceAleatorio=Math.floor(Math.random()*listaAmigos.length);
+// Seleccionar el nombre del amigo con el índice aleatorio.
+  let amigoSorteado=listaAmigos[indiceAleatorio];
+// Obtener el elemento donde se mostrara el resultado.
+  let resultadoHTML= document.getElementById('resultado');
+// Mostrar el nombre del amigo sorteado en la página.
+// Uso innerHTML para poder poner un texto personalizado
+  resultadoHTML.innerHTML=`<p>El amigo sorteado es: <strong>$ {amigoSorteado}</strong></p>`;
 }
