@@ -21,7 +21,13 @@ function agregarAmigo() {
 
 function mostrarLista(){
   const ul=document.getElementById('listaAmigos');
-  return;
+  ul.innerHTML="";
+  
+  listaAmigos.forEach(amigo=>{
+    const li= document.createElement("li");
+    li.textContent=amigo;
+    ul.appendChild(li);
+  });
 }
 
 function sortearAmigos(){
