@@ -22,9 +22,10 @@
 <img width="1160" height="685" alt="Captura de pantalla 4" src="https://github.com/user-attachments/assets/04d1e58a-ec69-4971-af83-399ab6dda2c7" />
 <br></br>
 <h3>¿CÓMO PROBARLO?</h3>
-<p>♣Juega asiendo click en el siguiente enlace:</p>
+<p>🔮Juega asiendo click en el siguiente enlace:</p>
 https://gabrieladata-bot.github.io/AmigoSecreto-Challenge/
-<P>🎨Puedes clonar el repositorio con:</p>
+<br></br>
+<P>🃏Puedes clonar el repositorio con:</p>
 https://github.com/gabrielaData-bot/AmigoSecreto-Challenge.git
-
+<br></br>
 <h3>🧠AUTORA: Gabriela Vera</h3>
